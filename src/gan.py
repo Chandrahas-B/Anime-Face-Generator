@@ -1,8 +1,3 @@
-# class GAN(tf.keras.Model):
-#     def __init__(self, discriminator, generator, latent_dim):
-#         super(GAN, self).__init__()
-#         self.discriminator = discriminator
-#         self.generator = generator
 import tensorflow as tf
 
 class GAN(tf.keras.Model):
@@ -24,8 +19,8 @@ class GAN(tf.keras.Model):
     def metrics(self):
         return [self.g_loss_metric, self.d_loss_metric]
 
-#     def call(self, inputs):
-#         return self.generator(inputs)
+    def call(self, inputs):
+        return self.generator(inputs)
 
     def train_step(self, real_images):
         batch_size = tf.shape(real_images)[0]
